@@ -7,11 +7,6 @@
 
 import Foundation
 
-struct Genre: Identifiable {
-    let id: Int
-    let name: String
-}
-
 struct Movie: Identifiable {
     let id: Int
     let title: String
