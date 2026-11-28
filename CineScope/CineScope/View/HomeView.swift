@@ -24,10 +24,12 @@ struct HomeView: View {
             } else {
                 if let featuredMovie = featuredMovie {
                     FeaturedMovieView(movie: featuredMovie)
-                        .frame(width: 300, height: 200)
-                        .background(.red)
-                        .clipShape(.buttonBorder)
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 300)
+                        .clipped()
+                        .ignoresSafeArea(edges: .top)
                 }
+                Spacer()
                 if !carouselMovies.isEmpty {
                     MovieCarouselView(movies: carouselMovies)
                         .frame(width: 300, height: 40)
@@ -35,15 +37,6 @@ struct HomeView: View {
                         .clipShape(.capsule)
                 }
             }
-        }
-    }
-}
-
-struct FeaturedMovieView: View {
-    var movie: Movie
-    var body: some View {
-        VStack {
-            Text(movie.title)
         }
     }
 }
